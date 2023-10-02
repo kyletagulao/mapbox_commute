@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           body: MapboxMap(
         accessToken: mapboxApiKey,
-        styleString: MapboxStyles.MAPBOX_STREETS,
+        styleString: 'mapbox://styles/gelotinx2/cln8jxse2007n01rc0xjt8pnf',
         onMapCreated: (controller) {
           controller.addSymbol(const SymbolOptions(
             geometry: LatLng(13.7594462, 121.0563053),
