@@ -1,33 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
+import 'package:mapbox_commute/src/utils/route.dart';
+import 'package:mapbox_commute/src/pages/route_map.dart'; // Adjust the import path to the actual location
 
-void main() {
-  runApp(const MyApp());
-}
-
-const String mapboxApiKey =
-    'pk.eyJ1IjoiZ2Vsb3RpbngyIiwiYSI6ImNsbjhhNmYzODEzZXQyanA5ZzUxOXg4bnMifQ.o6hzwT-6FUhrfa_eC9-ZsA';
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          body: MapboxMap(
-        accessToken: mapboxApiKey,
-        styleString: 'mapbox://styles/gelotinx2/cln8jxse2007n01rc0xjt8pnf',
-        onMapCreated: (controller) {
-          controller.addSymbol(const SymbolOptions(
-            geometry: LatLng(13.7594462, 121.0563053),
-            textField: 'Marker',
-          ));
-        },
-        initialCameraPosition: const CameraPosition(
-            target: LatLng(13.7594462, 121.0563053), zoom: 12.0),
-      )),
+        appBar: AppBar(
+          title: Text('Transport Map Example'),
+        ),
+        body: TransportMap(predefinedRoutes), // Assuming predefinedRoutes is defined
+      ),
     );
   }
 }
